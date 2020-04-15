@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="">
+
+	<!-- Hier kommt normalerweise jetzt ganz viel Zeugs was ihr nicht ändern müsst / solltet -->
+	
+    <!-- In den i3d Mappings müssen wir jetzt unsere Nodes aus der i3D ergänzen -->
+	<!-- Ihr müsst natürlich nur die Nodes ergänzen, die ihr auch verwendet habt -->		
+	
+	<i3dMappings>
+
+		<!-- fügt eure Mappings einfach dazu ... am einfachsten am Ende ... damit man sie auch wiederfindet -->
+		
+		<!-- simpleIC Player Trigger -->
+		<i3dMapping id="simpleICLSF_playerTrigger" 			node="0>" />
+	
+		<!-- simpleIC Animations -->
+		<i3dMapping id="simpleICLSF_moveBackWindow" 		node="0>" />
+		<i3dMapping id="simpleICLSF_moveSideWindow" 		node="0>" />
+		<i3dMapping id="simpleICLSF_moveLeftDoor_Inside" 	node="0>" />
+		<i3dMapping id="simpleICLSF_moveLeftDoor_Outside" 	node="0>" />
+		<i3dMapping id="simpleICLSF_moveRightDoor_Inside" 	node="0>" />
+		<i3dMapping id="simpleICLSF_moveRightDoor_Outside" 	node="0>" />
+		
+		<!-- simpleIC Hydraulics -->
+		<i3dMapping id="simpleICLSF_upperBackHydraulic" 	node="0>" />
+		<i3dMapping id="simpleICLSF_lowerBackHydraulic" 	node="0>" />
+		<i3dMapping id="simpleICLSF_toogleBackHydraulic" 	node="0>" />
+		<i3dMapping id="simpleICLSF_toogleBackPTO" 			node="0>" />
+		<i3dMapping id="simpleICLSF_upperFrontHydraulic" 	node="0>" />
+		<i3dMapping id="simpleICLSF_lowerFrontHydraulic" 	node="0>" />
+		<i3dMapping id="simpleICLSF_toogleFrontHydraulic" 	node="0>" />
+		
+	</i3dMappings>
+	
+	
+	<!-- in dem <animations/> block finden wir die Animationen die wir später über simpleIC ansteuern können -->
+
+	<!-- jetzt kommt der simpleIC Block ... den könnt ihr erst mal so einfügen und dann anpassen -->
+	<!-- bei den Standard Animationen müsst ihr pro Animation der Namen der Animation eintragen, die beim Drück auf das Kreuzchen ausgelöst werden soll -->
+	
+	<simpleIC outsideInteractionTrigger="simpleICLSF_playerTrigger" >
+		
+		<!-- Öffnen der linken Tür -->
+		<animation animationName="openLeftDoor" animationSpeed="1" sharedAnimation="false" soundVolumeIncreasePercentage="10.0" >
+			<outsideTrigger triggerPoint="simpleICLSF_moveLeftDoor_Outside" triggerPointSize="0.04" />
+			<insideTrigger triggerPoint="simpleICLSF_moveLeftDoor_Inside" triggerPointSize="0.04" />
+		</animation>
+		
+		<!-- Öffnen der Heckscheibe -->
+		<animation animationName="openRearWindow" animationSpeed="1.5" sharedAnimation="false" soundVolumeIncreasePercentage="10.0" >
+			<insideTrigger triggerPoint="simpleICLSF_moveBackWindow" triggerPointSize="0.04" />
+		</animation>
+		
+		<!-- das müsst ihr jetzt für jede Animation machen die ihr über simpleIC steuern wollt -->
+		<!-- denkt dran in der i3D auch die passenden Nodes zu setzen und die Nodes in den i3D Mappings anzugeben -->
+		
+		<!-- Wer die simpleIC Version von ls-farmers.de verwendet der kann noch folgende Zusatzfeatures einbauen -->
+		
+		<!-- Heben / Senken der hinteren Unterlenker-->
+		<animation animationName="toogleBackHydraulic">
+			<outsideTrigger triggerPoint="simpleICLSF_toogleBackHydraulic" triggerPointSize="0.01" />
+		</animation>
+		<!-- Heben der hinteren Unterlenker -->
+		<animation animationName="upperBackHydraulic">
+			<outsideTrigger triggerPoint="simpleICLSF_upperBackHydraulic" triggerPointSize="0.01" />
+		</animation>
+		<!-- Senken der hinteren Unterlenker -->
+		<animation animationName="lowerBackHydraulic">
+			<outsideTrigger triggerPoint="simpleICLSF_lowerBackHydraulic" triggerPointSize="0.01" />
+		</animation>
+		<!-- An- / ausschalten der hinteren Zapfwelle -->
+		<animation animationName="activateBack">
+			<outsideTrigger triggerPoint="simpleICLSF_toogleBackPTO" triggerPointSize="0.01" />
+		</animation>
+		<!-- Heben / Senken der vorderen Unterlenker -->
+		<animation animationName="toogleFrontHydraulic">
+			<outsideTrigger triggerPoint="simpleICLSF_toogleFrontHydraulic" triggerPointSize="0.01" />
+		</animation>
+		<!-- Heben der vorderen Unterlenker -->
+		<animation animationName="upperFrontHydraulic">
+			<outsideTrigger triggerPoint="simpleICLSF_upperFrontHydraulic" triggerPointSize="0.01" />
+		</animation>
+		<!-- Heben der hinteren Unterlenker -->
+		<animation animationName="lowerFrontHydraulic">
+			<outsideTrigger triggerPoint="simpleICLSF_lowerFrontHydraulic" triggerPointSize="0.01" />
+		</animation>
+		
+		<!-- Meistens haben die Heckscheiben bewegte Gasdruckfedern. Diese könnte ihr hier eintragen -->
+	    <cylinderAnimations>
+		    <cylinder node1="rearWindowLeftCylinder" node2="rearWindowLeftCylinderInside" />
+			<cylinder node1="rearWindowRightCylinder" node2="rearWindowRightCylinderInside" />
+	    </cylinderAnimations>
+		
+	</simpleIC>
+
+</vehicle>

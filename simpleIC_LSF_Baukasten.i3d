@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="Fendt 820 Vario TMS" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="8.2.0"/>
+  </Asset>
+
+  <Files>
+  </Files>
+
+
+  <Materials>
+    <Material name="lambert1" materialId="4" diffuseColor="0 0 0 1" specularColor="0.0941177 1 0.0941177">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="simpleIC_LSF_Baukasten.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+    <TransformGroup name="simpleIC_LSF_Template" nodeId="7">
+      <Shape shapeId="1" name="playerTrigger" scale="1 1 1.1" kinematic="true" trigger="true" collisionMask="1048576" nodeId="8" materialIds="4" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+      <TransformGroup name="window" nodeId="9">
+        <TransformGroup name="simpleICLSF_moveBackWindow" nodeId="10"/>
+        <TransformGroup name="simpleICLSF_moveSideWindow" nodeId="11"/>
+      </TransformGroup>
+      <TransformGroup name="doors" nodeId="12">
+        <TransformGroup name="simpleICLSF_moveLeftDoor_Inside" nodeId="13"/>
+        <TransformGroup name="simpleICLSF_moveLeftDoor_Outside" nodeId="14"/>
+        <TransformGroup name="simpleICLSF_moveRightDoor_Inside" nodeId="15"/>
+        <TransformGroup name="simpleICLSF_moveRightDoor_Outside" nodeId="16"/>
+      </TransformGroup>
+      <TransformGroup name="hydraulic_controls" nodeId="17">
+        <TransformGroup name="simpleICLSF_upperBackHydraulic" nodeId="18"/>
+        <TransformGroup name="simpleICLSF_lowerBackHydraulic" nodeId="19"/>
+        <TransformGroup name="simpleICLSF_toogleBackHydraulic" nodeId="20"/>
+        <TransformGroup name="simpleICLSF_toogleBackPTO" nodeId="21"/>
+        <TransformGroup name="simpleICLSF_upperFrontHydraulic" nodeId="22"/>
+        <TransformGroup name="simpleICLSF_lowerFrontHydraulic" nodeId="23"/>
+        <TransformGroup name="simpleICLSF_toogleFrontHydraulic" nodeId="24"/>
+      </TransformGroup>
+    </TransformGroup>
+    <Camera name="camera" translation="-6.70657 0.270797 5.78885" rotation="-5.72959 -55.004 4.65205e-08" nodeId="25" fov="60" nearClip="0.1" farClip="10000" orthographicHeight="1"/>
+  </Scene>
+
+</i3D>
